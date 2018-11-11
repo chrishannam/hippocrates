@@ -1,0 +1,56 @@
+{
+    "question_set": {
+        "1000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Little interest or pleasure in doing things"
+        },
+        "2000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Feeling down, depressed, or hopeless"
+        }
+    },
+    "question_title": "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
+    "result_formula": "addition",
+    "results": [
+        {
+            "comment": "Monitor; may not require treatment",
+            "max": 4,
+            "min": 0,
+            "severity": "Minimal or none"
+        },
+        {
+            "comment": "Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment",
+            "max": 9,
+            "min": 5,
+            "severity": "Mild"
+        },
+        {
+            "comment": "Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment",
+            "max": 14,
+            "min": 10,
+            "severity": "Moderate"
+        },
+        {
+            "comment": "Warrants active treatment with psychotherapy, medications, or combination",
+            "max": 19,
+            "min": 15,
+            "severity": "Moderately severe"
+        },
+        {
+            "comment": "Warrants active treatment with psychotherapy, medications, or combination",
+            "max": 27,
+            "min": 20,
+            "severity": "Severe"
+        }
+    ]
+}

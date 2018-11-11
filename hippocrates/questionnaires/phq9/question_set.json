@@ -1,0 +1,119 @@
+{
+    "question_set": {
+        "1000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Little interest or pleasure in doing things"
+        },
+        "2000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Feeling down, depressed, or hopeless"
+        },
+        "3000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Trouble falling/staying asleep, sleeping too much"
+        },
+        "4000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Feeling tired or having little energy"
+        },
+        "5000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Poor appetite or overeating"
+        },
+        "6000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Feeling bad about yourself – or that you are a failure or have let yourself or your family down"
+        },
+        "7000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Trouble concentrating on things, such as reading the newspaper or watching television."
+        },
+        "8000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Moving or speaking so slowly that other people could have noticed. Or the opposite – being so fidgety or restless that you have been moving around a lot more than usual."
+        },
+        "9000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all ": 0,
+                "Several days ": 1
+            },
+            "question": "Thoughts that you would be better off dead or of hurting yourself in some way."
+        }
+    },
+    "question_title": "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
+    "result_formula": "addition",
+    "results": [
+        {
+            "comment": "Monitor; may not require treatment",
+            "max": 4,
+            "min": 0,
+            "severity": "Minimal or none"
+        },
+        {
+            "comment": "Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment",
+            "max": 9,
+            "min": 5,
+            "severity": "Mild"
+        },
+        {
+            "comment": "Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment",
+            "max": 14,
+            "min": 10,
+            "severity": "Moderate"
+        },
+        {
+            "comment": "Warrants active treatment with psychotherapy, medications, or combination",
+            "max": 19,
+            "min": 15,
+            "severity": "Moderately severe"
+        },
+        {
+            "comment": "Warrants active treatment with psychotherapy, medications, or combination",
+            "max": 27,
+            "min": 20,
+            "severity": "Severe"
+        }
+    ]
+}

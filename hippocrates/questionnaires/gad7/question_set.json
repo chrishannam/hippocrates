@@ -1,0 +1,104 @@
+{
+    "question_set": {
+        "1000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Feeling nervous, anxious, or on edge"
+        },
+        "2000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Not being able to stop or control worrying"
+        },
+        "3000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Worrying too much about different things"
+        },
+        "4000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Trouble relaxing"
+        },
+        "5000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Being so restless that it's hard to sit still"
+        },
+        "6000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Becoming easily annoyed or irritable"
+        },
+        "7000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "Feeling afraid as if something awful might happen"
+        },
+        "8000": {
+            "answers": {
+                "More than half the days": 2,
+                "Nearly every day": 3,
+                "Not at all": 0,
+                "Several days": 1
+            },
+            "question": "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?"
+        }
+    },
+    "question_title": "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
+    "result_formula": "addition",
+    "results": [
+        {
+            "comment": null,
+            "max": 5,
+            "min": 0,
+            "severity": "Minimal or none"
+        },
+        {
+            "comment": "Monitor",
+            "max": 9,
+            "min": 5,
+            "severity": "Mild"
+        },
+        {
+            "comment": "Possible clinically significant condition",
+            "max": 14,
+            "min": 10,
+            "severity": "Moderate"
+        },
+        {
+            "comment": "Active treatment probably warranted",
+            "max": 24,
+            "min": 15,
+            "severity": "Severe"
+        }
+    ]
+}

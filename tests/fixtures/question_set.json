@@ -1,0 +1,27 @@
+{
+    "question_set": {
+        "1000": {
+            "answers": {
+                "no": 5,
+                "yes": 0
+            },
+            "question": "Pickles?"
+        },
+        "2000": {
+            "answers": {
+                "no": 5,
+                "yes": 0
+            },
+            "question": "Cheese?"
+        }
+    },
+    "question_title": "Do you like the following?",
+    "results": [
+        {
+            "comment": "Possible low",
+            "max": 11,
+            "min": 0,
+            "severity": "Caution"
+        }
+    ]
+}

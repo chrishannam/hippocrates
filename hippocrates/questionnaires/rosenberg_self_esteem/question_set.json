@@ -1,0 +1,101 @@
+{
+    "question_set": {
+        "1000": {
+            "answers": {
+                "Agree": 2,
+                "Disagree": 1,
+                "Strongly agree": 3,
+                "Strongly disagree": 0
+            },
+            "question": "I feel that I am a person of worth, at least on an equal plane with others."
+        },
+        "2000": {
+            "answers": {
+                "Agree": 2,
+                "Disagree": 1,
+                "Strongly agree": 3,
+                "Strongly disagree": 0
+            },
+            "question": "I feel that I have a number of good qualities."
+        },
+        "3000": {
+            "answers": {
+                "Agree": 2,
+                "Disagree": 1,
+                "Strongly agree": 3,
+                "Strongly disagree": 0
+            },
+            "question": "I am able to do things as well as most other people."
+        },
+        "4000": {
+            "answers": {
+                "Agree": 1,
+                "Disagree": 2,
+                "Strongly agree": 0,
+                "Strongly disagree": 3
+            },
+            "question": "I feel I do not have much to be proud of."
+        },
+        "5000": {
+            "answers": {
+                "Agree": 2,
+                "Disagree": 1,
+                "Strongly agree": 3,
+                "Strongly disagree": 0
+            },
+            "question": "I take a positive attitude toward myself."
+        },
+        "6000": {
+            "answers": {
+                "Agree": 2,
+                "Disagree": 1,
+                "Strongly agree": 3,
+                "Strongly disagree": 0
+            },
+            "question": "On the whole, I am satisfied with myself."
+        },
+        "7000": {
+            "answers": {
+                "Agree": 1,
+                "Disagree": 2,
+                "Strongly agree": 0,
+                "Strongly disagree": 3
+            },
+            "question": "I wish I could have more respect for myself."
+        },
+        "8000": {
+            "answers": {
+                "Agree": 1,
+                "Disagree": 2,
+                "Strongly agree": 0,
+                "Strongly disagree": 3
+            },
+            "question": "I certainly feel useless at times."
+        },
+        "9000": {
+            "answers": {
+                "Agree": 1,
+                "Disagree": 2,
+                "Strongly agree": 0,
+                "Strongly disagree": 3
+            },
+            "question": "At times I think I am no good at all."
+        }
+    },
+    "question_title": null,
+    "result_formula": "addition",
+    "results": [
+        {
+            "comment": "Possible low self esteem",
+            "max": 15,
+            "min": 0,
+            "severity": "Caution"
+        },
+        {
+            "comment": "Normal",
+            "max": 27,
+            "min": 15,
+            "severity": "Good"
+        }
+    ]
+}
