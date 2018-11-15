@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/bassdread/hippocrates/tree/master.svg?style=svg)](https://circleci.com/gh/bassdread/hippocrates/tree/master)
+[![CircleCI](https://circleci.com/gh/chrishannam/hippocrates/tree/master.svg?style=svg)](https://circleci.com/gh/chrishannam/hippocrates/tree/master)
 
 # Hippocrates
 A Python library for giving and scoring various health based questionnaires.
