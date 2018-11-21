@@ -3,7 +3,7 @@ from hippocrates.questionnaires.gad7.assessment import GAD7Assessment
 from hippocrates.questionnaires.phq9.assessment import PHQ9Assessment
 from hippocrates.questionnaires.rosenberg_self_esteem.assessment import \
     RosenbergSelfEsteemAssessment
-from pick2 import pick
+from pick import pick
 
 OPTIONS = {
     'Beck Depression Index': BDIAssessment(),

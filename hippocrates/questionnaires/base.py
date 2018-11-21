@@ -5,7 +5,7 @@ Use this to create a parent class all hippocrates can use
 import typing as t
 
 from hippocrates.questionnaires.models import Answer, QuestionAnswerSet, Result
-from pick2 import pick
+from pick import pick
 
 
 class Assessment:
