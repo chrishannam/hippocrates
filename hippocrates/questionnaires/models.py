@@ -49,6 +49,9 @@ class QuestionAnswerSet:
         self.answer_options = answer_options
         self.answer = answer
 
+    def answer_question(self, answer: Answer):
+        self.answer = answer
+
 
 class Questionnaire:
 

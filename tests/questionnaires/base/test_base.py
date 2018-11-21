@@ -1,9 +1,11 @@
+import random
 from unittest.mock import MagicMock
 
 import pytest
 from hippocrates.questionnaires.base import Assessment
 from hippocrates.questionnaires.models import (Answer, Question,
                                                QuestionAnswerSet, Result)
+from hippocrates.questionnaires.phq2 import PHQ2Assessment
 
 
 def test_assessment_complete():
@@ -75,3 +77,24 @@ def test_result_failure(questionnaire_set):
     # assessment.take_assessment()
     with pytest.raises(Exception):
         assessment.result()
+
+
+@pytest.mark.parametrize(
+    'assessment',
+    [PHQ2Assessment()]
+)
+def test_take_assessment_code(assessment):
+
+    while not assessment.complete():
+        question: Question = assessment.ask_question()
+        question.answer_question(random.choice(question.answer_options))
+
+    assessment.display_results()
+
+
+@pytest.mark.parametrize(
+    'assessment',
+    [PHQ2Assessment]
+)
+def test_display_results(assessment):
+    pass
