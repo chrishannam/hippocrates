@@ -10,7 +10,6 @@ from tabulate import tabulate
 
 
 class Assessment:
-
     question_set: t.List = []
     results: t.List = []
     current_question: int = 0
@@ -26,17 +25,17 @@ class Assessment:
         )
         question_from_set.answer = question_from_set.answer_options[index]
 
-    def ask_question(self) -> Result:
+    def ask_question(self) -> QuestionAnswerSet:
 
         # for question in self.question_set:  # type: Question
         #     options: t.List = []
-            # for answer in question.answer_options:
-            #     options.append(answer.text)
+        # for answer in question.answer_options:
+        #     options.append(answer.text)
 
-            # if pick:
-            #     self.ask_question_using_pick(options, question_from_set)
+        # if pick:
+        #     self.ask_question_using_pick(options, question_from_set)
 
-            # return the question and then deal with the answer?
+        # return the question and then deal with the answer?
         question_to_ask = self.question_set[self.current_question]
         self.current_question = self.current_question + 1
 
@@ -67,13 +66,23 @@ class Assessment:
 
         return True if count == self.total_questions else False
 
+    def get_results(self) -> list:
+        if not self.complete():
+            raise AssessmentIncomplete()
+
+        answer_detail = []
+        for question_answer in self.question_set:  # type Question
+            answer_detail.append([question_answer.question.text,
+                                 question_answer.answer.text])
+        return answer_detail
+
     def display_results(self):
         table_data = [
             ['Question', 'Answer'],
         ]
+        table_data = table_data + self.get_results()
+        return tabulate(table_data, tablefmt='fancy_grid')
 
-        for question_answer in self.question_set:  # type Question
-            table_data.append([question_answer.question.text,
-                              question_answer.answer.text])
-        print('')
-        print(tabulate(table_data, tablefmt='fancy_grid'))
+
+class AssessmentIncomplete(Exception):
+    pass

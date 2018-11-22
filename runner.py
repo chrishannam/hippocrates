@@ -1,4 +1,5 @@
-from hippocrates.questionnaires.bdi.assessment import BDIAssessment
+from hippocrates.questionnaires.bdi.assessment import \
+    BeckDepressionIndexAssessment
 from hippocrates.questionnaires.gad2.assessment import GAD2Assessment
 from hippocrates.questionnaires.gad7.assessment import GAD7Assessment
 from hippocrates.questionnaires.phq2 import PHQ2Assessment
@@ -8,7 +9,7 @@ from hippocrates.questionnaires.rosenberg_self_esteem.assessment import \
 from pick import pick
 
 OPTIONS = {
-    'Beck Depression Index': BDIAssessment(),
+    'Beck Depression Index': BeckDepressionIndexAssessment(),
     'GAD 2': GAD2Assessment(),
     'GAD 7': GAD7Assessment(),
     'PHQ 2': PHQ2Assessment(),

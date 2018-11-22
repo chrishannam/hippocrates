@@ -17,7 +17,7 @@ question_set_json = import_question_set(path=JSON_QUESTION_SET)
 question_set = create_questions(question_set_json)
 
 
-class BDIAssessment(Assessment):
+class BeckDepressionIndexAssessment(Assessment):
 
     def __init__(self):
         raw_json = import_question_set(path=JSON_QUESTION_SET)

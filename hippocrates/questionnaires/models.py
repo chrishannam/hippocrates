@@ -35,9 +35,6 @@ class ResultSet:
     def __init__(self, results: t.List[Result]) -> None:
         self.results = results
 
-    def __inter__(self):
-        return self.results
-
 
 class QuestionAnswerSet:
 

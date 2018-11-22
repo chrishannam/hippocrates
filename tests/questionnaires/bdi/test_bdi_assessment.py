@@ -1,6 +1,7 @@
-from hippocrates.questionnaires.bdi.assessment import BDIAssessment
+from hippocrates.questionnaires.bdi.assessment import \
+    BeckDepressionIndexAssessment
 
 
 def test_bdi_assessment():
-    bdi_assessment = BDIAssessment()
+    bdi_assessment = BeckDepressionIndexAssessment()
     assert bdi_assessment.question_set

@@ -19,9 +19,6 @@ question_set = create_questions(question_set_json)
 
 class GAD7Assessment(Assessment):
 
-    def score(self) -> int:
-        pass
-
     def __init__(self):
         raw_json = import_question_set(path=JSON_QUESTION_SET)
         self.question_set: t.List = create_questions(raw_json)
