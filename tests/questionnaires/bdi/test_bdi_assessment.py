@@ -1,4 +1,4 @@
-from hippocrates.questionnaires.bdi.assessment import \
+from hippocrates.questionnaires.beck_depression_index.assessment import \
     BeckDepressionIndexAssessment
 
 

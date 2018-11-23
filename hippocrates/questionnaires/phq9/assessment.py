@@ -24,3 +24,7 @@ class PHQ9Assessment(Assessment):
         self.question_set: t.List = create_questions(raw_json)
         self.total_questions = len(self.question_set)
         self.results: t.List = create_results(question_set_json=raw_json)
+
+    @classmethod
+    def length(cls):
+        return len(question_set)

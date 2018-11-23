@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 import pytest
 from hippocrates.questionnaires.base import Assessment
-from hippocrates.questionnaires.bdi.assessment import \
+from hippocrates.questionnaires.beck_depression_index.assessment import \
     BeckDepressionIndexAssessment
 from hippocrates.questionnaires.gad2.assessment import GAD2Assessment
 from hippocrates.questionnaires.gad7.assessment import GAD7Assessment
@@ -100,5 +100,5 @@ def test_get_results(assessment):
 )
 def test_display_results(assessment):
     _take_assessment(assessment)
-    table = assessment.display_results()
+    table = assessment.display_answers()
     assert len(table.split('\n')) > len(assessment.question_set)

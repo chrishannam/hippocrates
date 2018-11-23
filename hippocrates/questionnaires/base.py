@@ -9,6 +9,15 @@ from pick import pick
 from tabulate import tabulate
 
 
+def ask_question_using_pick(options: t.List[Answer],
+                            question_from_set: QuestionAnswerSet):
+    option, index = pick(
+        options, question_from_set.question.text,
+        indicator='=>', default_index=0,
+    )
+    question_from_set.answer = question_from_set.answer_options[index]
+
+
 class Assessment:
     question_set: t.List = []
     results: t.List = []
@@ -17,25 +26,16 @@ class Assessment:
     def questions(self):
         return self.question_set
 
-    def ask_question_using_pick(self, options: t.List[Answer],
-                                question_from_set: QuestionAnswerSet):
-        option, index = pick(
-            options, question_from_set.question.text,
-            indicator='=>', default_index=0,
-        )
-        question_from_set.answer = question_from_set.answer_options[index]
+    def take_assessment(self, interactive=True):
+        for question in self.question_set:  # type: Question
+            options: t.List = []
+            for answer in question.answer_options:
+                options.append(answer.text)
+
+            if interactive:
+                ask_question_using_pick(options, question)
 
     def ask_question(self) -> QuestionAnswerSet:
-
-        # for question in self.question_set:  # type: Question
-        #     options: t.List = []
-        # for answer in question.answer_options:
-        #     options.append(answer.text)
-
-        # if pick:
-        #     self.ask_question_using_pick(options, question_from_set)
-
-        # return the question and then deal with the answer?
         question_to_ask = self.question_set[self.current_question]
         self.current_question = self.current_question + 1
 
@@ -76,11 +76,19 @@ class Assessment:
                                  question_answer.answer.text])
         return answer_detail
 
-    def display_results(self):
+    def display_answers(self):
         table_data = [
             ['Question', 'Answer'],
         ]
         table_data = table_data + self.get_results()
+        return tabulate(table_data, tablefmt='fancy_grid')
+
+    def display_result(self):
+        result = self.result()
+        table_data = [
+            ['Result', 'Severity'],
+            [result.comment, result.severity]
+        ]
         return tabulate(table_data, tablefmt='fancy_grid')
 
 
