@@ -1,9 +1,27 @@
+import random
 from unittest.mock import MagicMock
 
 import pytest
 from hippocrates.questionnaires.base import Assessment
+from hippocrates.questionnaires.beck_depression_index.assessment import \
+    BeckDepressionIndexAssessment
+from hippocrates.questionnaires.gad2.assessment import GAD2Assessment
+from hippocrates.questionnaires.gad7.assessment import GAD7Assessment
 from hippocrates.questionnaires.models import (Answer, Question,
                                                QuestionAnswerSet, Result)
+from hippocrates.questionnaires.phq2 import PHQ2Assessment
+from hippocrates.questionnaires.phq9 import PHQ9Assessment
+from hippocrates.questionnaires.rosenberg_self_esteem.assessment import \
+    RosenbergSelfEsteemAssessment
+
+ASSESSMENT_LIST = [
+    PHQ2Assessment(),
+    PHQ9Assessment(),
+    GAD2Assessment(),
+    GAD7Assessment(),
+    RosenbergSelfEsteemAssessment(),
+    BeckDepressionIndexAssessment(),
+]
 
 
 def test_assessment_complete():
@@ -42,36 +60,45 @@ def test_assessment_result():
     assessment.results = [result_one, result_two]
     assert assessment.result() == result_two
 
-    # question_set_one = QuestionAnswerSet(question=question_one,
-    #                                      answer_options=[answer_one])
-    # question_set_two = QuestionAnswerSet(question=question_two,
-    #                                      answer_options=[answer_two])
-
-
-def test_take_assessment(questionnaire_set):
-    assessment = Assessment()
-    assessment.total_questions = 2
-    assessment.results = questionnaire_set[0]
-    assessment.question_set = questionnaire_set[1]
-
-    def ask_question(options, question):
-        question.answer = question.answer_options[0]
-
-    assessment.ask_question = ask_question
-    assessment.take_assessment()
-    assert assessment.complete()
-
 
 def test_result_failure(questionnaire_set):
     assessment = Assessment()
     assessment.total_questions = 5
-    # assessment.results = questionnaire_set[0]
-    assessment.question_set = questionnaire_set[1]
+    assessment.question_set = questionnaire_set[0]
 
-    # def ask_question(options, question):
-    #     question.answer = question.answer_options[0]
-    #
-    # assessment.ask_question = ask_question
-    # assessment.take_assessment()
     with pytest.raises(Exception):
         assessment.result()
+
+
+@pytest.mark.parametrize(
+    'assessment',
+    ASSESSMENT_LIST
+)
+def test_take_assessment_code(assessment):
+    _take_assessment(assessment)
+    assert assessment.result()
+
+
+def _take_assessment(assessment: Assessment):
+    while not assessment.complete():
+        question: QuestionAnswerSet = assessment.ask_question()
+        question.answer_question(random.choice(question.answer_options))
+
+
+@pytest.mark.parametrize(
+    'assessment',
+    ASSESSMENT_LIST
+)
+def test_get_results(assessment):
+    _take_assessment(assessment)
+    assert len(assessment.get_results()) == len(assessment.question_set)
+
+
+@pytest.mark.parametrize(
+    'assessment',
+    ASSESSMENT_LIST
+)
+def test_display_results(assessment):
+    _take_assessment(assessment)
+    table = assessment.display_answers()
+    assert len(table.split('\n')) > len(assessment.question_set)

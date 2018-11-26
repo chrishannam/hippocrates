@@ -23,7 +23,7 @@
     "result_formula": "addition",
     "results": [
         {
-            "comment": null,
+            "comment": "Normal",
             "max": 5,
             "min": 0,
             "severity": "Minimal or none"
