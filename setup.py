@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='hippocrates',
-    version='0.1.1',
+    version='0.1.4',
     author='Chris Hannam',
     author_email='ch@chrishannam.co.uk',
     description='Mental health questionnaires.',
@@ -20,5 +20,6 @@ setuptools.setup(
     ],
     install_requires=[
         'pick>=0.6.4',
+        'tabulate>=0.8.2',
     ],
 )
