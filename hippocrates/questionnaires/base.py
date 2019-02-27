@@ -3,7 +3,10 @@ Use this to create a parent class all hippocrates can use
 """
 
 import typing as t
+<<<<<<< HEAD
 from datetime import datetime
+=======
+>>>>>>> c600c67d5113e03586412322b85dd5107a4e07e7
 from os import mkdir, path
 
 from hippocrates.questionnaires.models import Answer, QuestionAnswerSet, Result
