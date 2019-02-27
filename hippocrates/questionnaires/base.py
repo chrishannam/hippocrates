@@ -3,6 +3,7 @@ Use this to create a parent class all hippocrates can use
 """
 
 import typing as t
+from datetime import datetime
 from os import mkdir, path
 
 from hippocrates.questionnaires.models import Answer, QuestionAnswerSet, Result
@@ -33,7 +34,7 @@ class Assessment:
         return self.question_set
 
     def take_assessment(self, interactive=True):
-        for question in self.question_set:  # type: Question
+        for question in self.question_set:
             options: t.List = []
             for answer in question.answer_options:
                 options.append(answer.text)
@@ -119,8 +120,10 @@ class Assessment:
 
         with open(STORAGE_FILE, 'a') as storage_file:
             if write_header:
-                storage_file.write(f'Assessment Name,Score\n')
-            storage_file.write(f'{self.name},{score}\n')
+                storage_file.write(f'Date Taken,Assessment Name,Score\n')
+            storage_file.write(
+                f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")},'
+                f'{self.name},{score}\n')
 
     def save_results(self):
         score = self.total_score()

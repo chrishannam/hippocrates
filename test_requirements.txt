@@ -1,8 +1,9 @@
 coverage==4.5.2
-mypy==0.641
-pre_commit==1.12.0
-pytest==4.0.0
-pytest-benchmark==3.1.1
-pytest-cov==2.6.0
-tox==3.5.3
-xenon==0.5.4
+mypy==0.670
+pre_commit==1.14.4
+pytest==4.3.0
+pytest-benchmark==3.2.2
+pytest-cov==2.6.1
+PyYAML==3.13
+tox==3.7.0
+xenon==0.5.5
