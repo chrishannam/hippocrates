@@ -21,4 +21,6 @@ setuptools.setup(
     install_requires=[
         'pick>=0.6.4',
     ],
+    scripts=['bin/hip-take-phq9'],
+    include_package_data=True,
 )
