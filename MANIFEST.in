@@ -1,0 +1,6 @@
+include hippocrates/questionnaires/phq2/question_set.json
+include hippocrates/questionnaires/gad2/question_set.json
+include hippocrates/questionnaires/phq9/question_set.json
+include hippocrates/questionnaires/beck_depression_index/question_set.json
+include hippocrates/questionnaires/gad7/question_set.json
+include hippocrates/questionnaires/rosenberg_self_esteem/question_set.json
