@@ -106,23 +106,31 @@ class Assessment:
         ]
         return tabulate(table_data, tablefmt='fancy_grid')
 
+    def check_directory_exists(self):
+        if path.isdir(STORAGE_FILE_PATH):
+            return True
+        mkdir(STORAGE_FILE_PATH)
+        return False
+
+    def _write_to_file(self, write_header, score):
+        # dir exists but the file might have been deleted
+        if not path.isfile(STORAGE_FILE):
+            write_header = True
+
+        with open(STORAGE_FILE, 'a') as storage_file:
+            if write_header:
+                storage_file.write(f'Assessment Name,Score\n')
+            storage_file.write(f'{self.name},{score}\n')
+
     def save_results(self):
         score = self.total_score()
         write_header = False
         try:
             # create dir and print the headers for the csv file
-            if not path.isdir(STORAGE_FILE_PATH):
-                mkdir(STORAGE_FILE_PATH)
+            if not self.check_directory_exists():
                 write_header = True
 
-            # dir exists but the file might have been deleted
-            if not path.isfile(STORAGE_FILE):
-                write_header = True
-
-            with open(STORAGE_FILE, 'a') as storage_file:
-                if write_header:
-                    storage_file.write(f'Assessment Name,Score\n')
-                storage_file.write(f'{self.name},{score}\n')
+            self._write_to_file(write_header=write_header, score=score)
 
         except OSError:
             print(f'Creation of the directory {STORAGE_FILE_PATH} failed')
