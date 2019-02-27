@@ -3,10 +3,16 @@ Use this to create a parent class all hippocrates can use
 """
 
 import typing as t
+from os import mkdir, path
 
 from hippocrates.questionnaires.models import Answer, QuestionAnswerSet, Result
 from pick import pick
 from tabulate import tabulate
+
+HOME_DIRECTORY = path.expanduser('~')
+STORAGE_DIRECTORY_NAME = '.hippocrates'
+STORAGE_FILE_PATH = path.join(HOME_DIRECTORY, STORAGE_DIRECTORY_NAME)
+STORAGE_FILE = path.join(STORAGE_FILE_PATH, 'results.csv')
 
 
 def ask_question_using_pick(options: t.List[Answer],
@@ -40,6 +46,15 @@ class Assessment:
         self.current_question = self.current_question + 1
 
         return question_to_ask
+
+    def total_score(self):
+        total = 0
+        for question in self.question_set:
+            if not question.answer:
+                # raise exception?
+                continue
+            total = total + question.answer.value
+        return total
 
     def result(self) -> Result:
         total = 0
@@ -90,6 +105,27 @@ class Assessment:
             [result.comment, result.severity]
         ]
         return tabulate(table_data, tablefmt='fancy_grid')
+
+    def save_results(self):
+        score = self.total_score()
+        write_header = False
+        try:
+            # create dir and print the headers for the csv file
+            if not path.isdir(STORAGE_FILE_PATH):
+                mkdir(STORAGE_FILE_PATH)
+                write_header = True
+
+            # dir exists but the file might have been deleted
+            if not path.isfile(STORAGE_FILE):
+                write_header = True
+
+            with open(STORAGE_FILE, 'a') as storage_file:
+                if write_header:
+                    storage_file.write(f'Assessment Name,Score\n')
+                storage_file.write(f'{self.name},{score}\n')
+
+        except OSError:
+            print(f'Creation of the directory {STORAGE_FILE_PATH} failed')
 
 
 class AssessmentIncomplete(Exception):
