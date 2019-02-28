@@ -8,7 +8,7 @@ Currently the following are supported:
 * [Generalized Anxiety Disorder 2](https://en.wikipedia.org/wiki/Generalized_anxiety_disorder)
 * [Generalized Anxiety Disorder 7](https://en.wikipedia.org/wiki/Generalized_Anxiety_Disorder_7)
 * [Patient Health Questionnaire 2](https://en.wikipedia.org/wiki/Patient_Health_Questionnaire#2-item_depression_screener)
-* [Patient Health Questionnaire 7](https://en.wikipedia.org/wiki/PHQ-9)
+* [Patient Health Questionnaire 9](https://en.wikipedia.org/wiki/PHQ-9)
 * [Rosenberg Self-Esteem Scale](https://en.wikipedia.org/wiki/Rosenberg_self-esteem_scale)
 
 More information about the above tests can be found in [questionnaires](docs/questionnaires.md)
