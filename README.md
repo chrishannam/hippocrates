@@ -11,7 +11,7 @@ Currently the following are supported:
 * [Patient Health Questionnaire 9](https://en.wikipedia.org/wiki/PHQ-9)
 * [Rosenberg Self-Esteem Scale](https://en.wikipedia.org/wiki/Rosenberg_self-esteem_scale)
 
-More information about the above tests can be found in [questionnaires](docs/questionnaires.md)
+More information about the above tests can be found in [questionnaires](docs/questionnaires.md).
 
 # Installing
 ## Pip
