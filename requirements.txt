@@ -1,3 +1,4 @@
+bokeh==1.0.4
 click==7.0
 pick==0.6.4
 tabulate==0.8.2
