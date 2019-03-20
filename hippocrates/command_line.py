@@ -48,7 +48,7 @@ def _display_help():
 def _select_questionnaire(questionnaire):
     for cls in [cls for cls in Assessment.__subclasses__()]:
         if questionnaire == cls.name:
-            return cls
+            return cls()
 
 
 if __name__ == '__main__':
