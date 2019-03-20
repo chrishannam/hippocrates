@@ -5,11 +5,13 @@ from hippocrates.questionnaires.gad2.assessment import GAD2Assessment as \
 import click
 
 
+
+
 @click.command()
 @click.option('--hide', is_flag=True)
 @click.option('--log', is_flag=True)
-@click.option('--test', help='The person to greet.')
-def run(hide, log, test):
+@click.argument('assessment')
+def run(hide, log, assessment):
     assessment = AssessmentToTake()
     assessment.take_assessment()
     if not hide:

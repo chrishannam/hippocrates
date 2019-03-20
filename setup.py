@@ -34,4 +34,7 @@ setuptools.setup(
         'bin/hip-take-rosenberg-self-esteem',
     ],
     include_package_data=True,
+    entry_points={
+        'console_scripts': ['hippocrates=hippocrates.command_line:main'],
+    }
 )
