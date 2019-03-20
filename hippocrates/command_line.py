@@ -17,22 +17,12 @@ def main(hide, log, questionnaire):
     :param questionnaire: Questionnaire selected.
     :return:
     """
-
-    questionnaire_selected = None
-
-    for cls in [cls for cls in Assessment.__subclasses__()]:
-        if questionnaire == cls.name:
-            questionnaire_selected = cls()
-            print(f'Taking the {questionnaire_selected.title}')
-            break
+    questionnaire_selected = _select_questionnaire(questionnaire)
+    print(f'Taking the {questionnaire_selected.title}')
 
     # Assessment not found so display help text.
     if not questionnaire_selected:
-        print('Assessment not found, please choose from:')
-        for cls in [cls for cls in Assessment.__subclasses__()]:
-            print(f'{cls.name}')
-        print('For example: hippocrates phq9')
-        exit(1)
+        _display_help()
 
     questionnaire_selected.take_assessment()
 
@@ -45,6 +35,20 @@ def main(hide, log, questionnaire):
     if log:
         print('Saving results.')
         questionnaire_selected.save_results()
+
+
+def _display_help():
+    print('Assessment not found, please choose from:')
+    for cls in [cls for cls in Assessment.__subclasses__()]:
+        print(f'{cls.name}')
+    print('For example: hippocrates phq9')
+    exit(1)
+
+
+def _select_questionnaire(questionnaire):
+    for cls in [cls for cls in Assessment.__subclasses__()]:
+        if questionnaire == cls.name:
+            return cls
 
 
 if __name__ == '__main__':
