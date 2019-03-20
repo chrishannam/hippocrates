@@ -1,5 +1,8 @@
 """
-Use this to create a parent class all hippocrates can use
+The PHQ-2 inquires about the frequency of depressed mood and anhedonia over
+the past two weeks. The PHQ-2 includes the first two items of the PHQ-9.
+
+More information: https://www.hiv.uw.edu/page/mental-health-screening/phq-2
 """
 
 import typing as t
@@ -18,13 +21,13 @@ question_set = create_questions(question_set_json)
 
 
 class PHQ2Assessment(Assessment):
+    name: str = 'phq2'
 
     def __init__(self):
         raw_json = import_question_set(path=JSON_QUESTION_SET)
         self.question_set: t.List = create_questions(raw_json)
         self.total_questions = len(self.question_set)
         self.results: t.List = create_results(question_set_json=raw_json)
-        self.name: str = 'PHQ2'
 
     @classmethod
     def length(cls):

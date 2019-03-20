@@ -29,6 +29,11 @@ class Assessment:
     question_set: t.List = []
     results: t.List = []
     current_question: int = 0
+    name: str = ''
+
+    @property
+    def title(self):
+        return self.name.replace('_', ' ').title()
 
     def questions(self):
         return self.question_set

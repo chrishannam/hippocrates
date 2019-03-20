@@ -14,7 +14,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/chrishannam/hippocrates',
-    packages=setuptools.find_packages(exclude=('tests',)),
+    packages=setuptools.find_packages(exclude=('tests', 'examples')),
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: Apache Software License',
@@ -25,13 +25,8 @@ setuptools.setup(
         'pick>=0.6.4',
         'tabulate>=0.8.2',
     ],
-    scripts=[
-        'bin/hip-take-phq9',
-        'bin/hip-take-phq2',
-        'bin/hip-take-gad2',
-        'bin/hip-take-gad7',
-        'bin/hip-take-beck-depression-index',
-        'bin/hip-take-rosenberg-self-esteem',
-    ],
     include_package_data=True,
+    entry_points={
+        'console_scripts': ['hippocrates=hippocrates.command_line:main'],
+    }
 )
