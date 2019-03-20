@@ -26,16 +26,20 @@ python setup.py install
 
 
 # Using the Questionnaires
-Once installed the following questionnaire are available:
+Once installed, the questionnaires are available via the `hippocrates` command:
 
-* `hip-take-beck-depression-index`
-* `hip-take-gad2`
-* `hip-take-gad7`
-* `hip-take-phq2`
-* `hip-take-phq9`
-* `hip-take-rosenberg-self-esteem`
+`hippocrates QUESTIONNAIRE_NAME`
 
-Run the desired command to take the questionnaire.
+e.g.
+`hippocrates phq9`
+
+Below is the list of the supported questionnaires:
+* `beck_depression_index`
+* `gad2`
+* `gad2`
+* `phq2`
+* `phq9`
+* `rosenberg_self_esteem`
 
 ## Options
 
@@ -44,3 +48,6 @@ Stops results from being displayed once questionnaire is created, default is `of
 
 ### --log
 Logs results to ~/.hippocrates/results.csv, default is `off`.
+
+### questionnaire
+Selected questionnaire to complete.
