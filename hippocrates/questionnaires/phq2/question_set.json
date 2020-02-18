@@ -24,33 +24,15 @@
     "results": [
         {
             "comment": "Monitor; may not require treatment",
-            "max": 4,
+            "max": 2,
             "min": 0,
             "severity": "Minimal or none"
         },
         {
-            "comment": "Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment",
-            "max": 9,
-            "min": 5,
+            "comment": "Further diagnostic evaluation for Panic Disorder, Social Anxiety Disorder, and/or Posttraumatic Stress Disorder is warranted.",
+            "max": 6,
+            "min": 3,
             "severity": "Mild"
-        },
-        {
-            "comment": "Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment",
-            "max": 14,
-            "min": 10,
-            "severity": "Moderate"
-        },
-        {
-            "comment": "Warrants active treatment with psychotherapy, medications, or combination",
-            "max": 19,
-            "min": 15,
-            "severity": "Moderately severe"
-        },
-        {
-            "comment": "Warrants active treatment with psychotherapy, medications, or combination",
-            "max": 27,
-            "min": 20,
-            "severity": "Severe"
         }
     ]
 }
