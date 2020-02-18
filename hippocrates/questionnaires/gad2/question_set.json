@@ -24,27 +24,15 @@
     "results": [
         {
             "comment": "Normal",
-            "max": 5,
+            "max": 2,
             "min": 0,
-            "severity": "Minimal or none"
+            "severity": "None"
         },
         {
-            "comment": "Monitor",
-            "max": 9,
-            "min": 5,
-            "severity": "Mild"
-        },
-        {
-            "comment": "Possible clinically significant condition",
-            "max": 14,
-            "min": 10,
-            "severity": "Moderate"
-        },
-        {
-            "comment": "Active treatment probably warranted",
-            "max": 24,
-            "min": 15,
-            "severity": "Severe"
+            "comment": "Further diagnostic evaluation for generalized anxiety disorder is warranted",
+            "max": 6,
+            "min": 3,
+            "severity": "Unknown"
         }
     ]
 }
