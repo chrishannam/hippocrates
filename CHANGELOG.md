@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 * Latest requirements.
+* Fixes #GH-12 with wrong boundaries for GAD-2 test.
 
 ## 0.3.2
 ### Added
