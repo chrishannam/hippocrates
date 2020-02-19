@@ -10,8 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Update requirements to latest.
-- Fix PHQ2 score results
-- Fix GAD2 score results
+* Fixes [#13](https://github.com/chrishannam/hippocrates/issues/13) with
+  wrong boundaries for GAD-2 test.
+* Fixes [#14](https://github.com/chrishannam/hippocrates/issues/14) with
+  wrong boundaries for PHQ-2 test.
 
 ## 0.3.2
 ### Added
