@@ -17,11 +17,11 @@ STORAGE_FILE = path.join(STORAGE_FILE_PATH, 'results.csv')
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 
-def ask_question_using_pick(options: t.List[Answer],
-                            question_from_set: QuestionAnswerSet):
+def ask_question_using_pick(
+    options: t.List[Answer], question_from_set: QuestionAnswerSet
+):
     option, index = pick(
-        options, question_from_set.question.text,
-        indicator='=>', default_index=0,
+        options, question_from_set.question.text, indicator='=>', default_index=0,
     )
     question_from_set.answer = question_from_set.answer_options[index]
 
@@ -94,8 +94,9 @@ class Assessment:
 
         answer_detail = []
         for question_answer in self.question_set:  # type Question
-            answer_detail.append([question_answer.question.text,
-                                 question_answer.answer.text])
+            answer_detail.append(
+                [question_answer.question.text, question_answer.answer.text]
+            )
         return answer_detail
 
     def display_answers(self):
@@ -107,10 +108,7 @@ class Assessment:
 
     def display_result(self):
         result = self.result()
-        table_data = [
-            ['Result', 'Severity'],
-            [result.comment, result.severity]
-        ]
+        table_data = [['Result', 'Severity'], [result.comment, result.severity]]
         return tabulate(table_data, tablefmt='fancy_grid')
 
     def check_directory_exists(self):
@@ -128,8 +126,8 @@ class Assessment:
             if write_header:
                 storage_file.write(f'Date Taken,Assessment Name,Score\n')
             storage_file.write(
-                f'{datetime.now().strftime(DATE_FORMAT)},'
-                f'{self.name},{score}\n')
+                f'{datetime.now().strftime(DATE_FORMAT)},' f'{self.name},{score}\n'
+            )
 
     def save_results(self):
         score = self.total_score()

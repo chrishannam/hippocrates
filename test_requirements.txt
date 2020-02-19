@@ -1,9 +1,9 @@
 -r requirements.txt
+black~=19.10b0
+mypy~=0.761
 
 pre_commit~=2.0.1
-pytest~=5.3.5
 pytest-benchmark~=3.2.3
 pytest-cov~=2.8.1
+pytest~=5.3.5
 xenon~=0.7.0
-mypy~=0.761
-black~=19.10b0
