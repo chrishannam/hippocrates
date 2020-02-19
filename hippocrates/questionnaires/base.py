@@ -14,6 +14,7 @@ HOME_DIRECTORY = path.expanduser('~')
 STORAGE_DIRECTORY_NAME = '.hippocrates'
 STORAGE_FILE_PATH = path.join(HOME_DIRECTORY, STORAGE_DIRECTORY_NAME)
 STORAGE_FILE = path.join(STORAGE_FILE_PATH, 'results.csv')
+DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 
 def ask_question_using_pick(options: t.List[Answer],
@@ -127,7 +128,7 @@ class Assessment:
             if write_header:
                 storage_file.write(f'Date Taken,Assessment Name,Score\n')
             storage_file.write(
-                f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")},'
+                f'{datetime.now().strftime(DATE_FORMAT)},'
                 f'{self.name},{score}\n')
 
     def save_results(self):
