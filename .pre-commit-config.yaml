@@ -1,23 +1,26 @@
--   repo: https://github.com/FalconSocial/pre-commit-python-sorter
-    rev: master
+repos:
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.761
     hooks:
-    -   id: python-import-sorter
-        args: ['--silent-overwrite']
-
--   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.670
-    hooks:
-    -   id: mypy
+      - id: mypy
         args: [--ignore-missing-imports]
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.1.0
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.5.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
-    -   id: check-json
-    -   id: debug-statements
-    -   id: double-quote-string-fixer
-    -   id: requirements-txt-fixer
-    -   id: flake8
-        args: ['--max-line-length=79']
+      - id: trailing-whitespace
+        args: ['--markdown-linebreak-ext=md']
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: ['--unsafe']
+      - id: check-json
+      - id: debug-statements
+      - id: requirements-txt-fixer
+      - id: check-ast
+      - id: flake8
+        args: ['--max-line-length=88']
+
+  - repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+      - id: black
