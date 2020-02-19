@@ -1,5 +1,9 @@
-from hippocrates.questionnaires.models import (Questionnaire, Result,
-                                               ResultSet, create_questions)
+from hippocrates.questionnaires.models import (
+    Questionnaire,
+    Result,
+    ResultSet,
+    create_questions,
+)
 
 
 def test_create_questions(questionnaire_set_json):
@@ -17,11 +21,6 @@ def test_questionnaire_iteration(questionnaire_set_json):
 
 
 def test_result_set():
-    result = Result(
-        min_score=0,
-        max_score=4,
-        severity='sev',
-        comment='test comment',
-    )
+    result = Result(min_score=0, max_score=4, severity='sev', comment='test comment',)
     result_set = ResultSet(results=[result])
     assert result_set

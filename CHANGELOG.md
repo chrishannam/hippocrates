@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Add script to generate test data for reporting tests and graphing. 
+- Add script to generate test data for reporting tests and graphing.
 
 ### Changed
 - Update requirements to latest.

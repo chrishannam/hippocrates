@@ -26,14 +26,14 @@ def main():
                 {
                     'Date Taken': phq9_date,
                     'Assessment Name': 'phq9',
-                    'Score': randint(0, 27)
+                    'Score': randint(0, 27),
                 }
             )
             writer.writerow(
                 {
                     'Date Taken': gad7_date,
                     'Assessment Name': 'phq9',
-                    'Score': randint(0, 21)
+                    'Score': randint(0, 21),
                 }
             )
 

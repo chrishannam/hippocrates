@@ -1,5 +1,6 @@
-from hippocrates.questionnaires.rosenberg_self_esteem.assessment import \
-    RosenbergSelfEsteemAssessment
+from hippocrates.questionnaires.rosenberg_self_esteem.assessment import (
+    RosenbergSelfEsteemAssessment,
+)
 
 
 def test_bdi_assessment():
