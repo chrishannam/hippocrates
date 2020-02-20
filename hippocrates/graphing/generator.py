@@ -1,36 +1,29 @@
+"""
+Provides basic graphing for results.csv file.
+"""
+
+
 from bokeh.io import output_file, show
 from bokeh.layouts import column
 from bokeh.plotting import figure
 
 from hippocrates.data.fetcher import from_log
 
-
-# def render_questionnaire():
-#
-#     # output to static HTML file
-#     output_file("lines.html")
-#
-#     # create a new plot with a title and axis labels
-#     p = figure(title="simple line example", x_axis_label='date', y_axis_label='y',
-#                x_axis_type='datetime')
-#
-#     # add a line renderer with legend and line thickness
-#     p.line(x, y, legend_label="Temp.", line_width=2)
-#
-#     # show the results
-#     show(p)
-#
-#     p = figure(title="simple line example", x_axis_label='date', y_axis_label='y',
-#                x_axis_type='datetime')
-#
-#     # add a line renderer with legend and line thickness
-#     p.line(x, y, legend_label="Temp.", line_width=2)
+PLOT_WIDTH = 1000
+PLOT_HEIGHT = 400
 
 
 def format_data():
-    data = from_log()
-    # prepare some data
+    """
+    {
+        'phq9': {
+            'dates': [datetime, datetime]
+            'scores': [14, 5]
+        }
+    }
+    """
 
+    data = from_log()
     results = {}
 
     for questionnaire, values in data.items():
@@ -48,28 +41,53 @@ def format_data():
     return results
 
 
-def render_questionnaire_two():
-    output_file("layout.html")
+def render_questionnaire():
+    output_file("hippocrates_results.html")
 
-    dates, scores = format_data()
+    columns_to_display = []
 
-    x = dates
-    y0 = x
-    y1 = [10 - i for i in x]
-    y2 = [abs(i - 5) for i in x]
+    from sys import modules
+    this_mod = modules[__name__]
 
-    # create three plots
-    s1 = figure(plot_width=250, plot_height=250, background_fill_color="#fafafa")
-    s1.circle(x, y0, size=12, color="#53777a", alpha=0.8)
+    results = format_data()
+    for questionnaire, values in results.items():
+        columns_to_display.append(getattr(this_mod, questionnaire)(
+            values['dates'],
+            values['scores']
+        ))
 
-    s2 = figure(plot_width=250, plot_height=250, background_fill_color="#fafafa")
-    s2.triangle(x, y1, size=12, color="#c02942", alpha=0.8)
-
-    s3 = figure(plot_width=250, plot_height=250, background_fill_color="#fafafa")
-    s3.square(x, y2, size=12, color="#d95b43", alpha=0.8)
-
-    # put the results in a column and show
-    show(column(s1, s2, s3))
+    show(column(columns_to_display))
 
 
-print(format_data())
+def gad7(dates, scores):
+    column_data = figure(title='Generalised Anxiety Disorder Assessment (GAD-7)',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color="#fafafa",
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label="Score",
+        line_width=2,
+        color="#53777a",
+        alpha=0.8
+    )
+    return column_data
+
+
+def phq9(dates, scores):
+    column_data = figure(title='Patient Health Questionnaire (PHQ)-9',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color="#fafafa",
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label="Score",
+        line_width=2,
+        color="#d95b43",
+        alpha=0.8
+    )
+    return column_data
