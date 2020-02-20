@@ -17,9 +17,7 @@ def main(hide, log, questionnaire):
     :param questionnaire: Questionnaire selected.
     :return:
     """
-    print("asdfsdfasdfasdfasdf")
     questionnaire_selected = _select_questionnaire(questionnaire)
-    print(questionnaire)
     print(f'Taking the {questionnaire_selected.title}')
 
     # Assessment not found so display help text.
@@ -49,10 +47,10 @@ def _display_help():
 
 def _select_questionnaire(questionnaire):
     for cls in [cls for cls in Assessment.__subclasses__()]:
-        print(cls)
         if questionnaire == cls.name:
             return cls()
-    print('asdfasdfasfasd')
+    return _display_help()
+
 
 if __name__ == '__main__':
     main()
