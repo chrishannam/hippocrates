@@ -26,7 +26,7 @@ question_set = create_questions(question_set_json)
 
 
 class GAD7Assessment(Assessment):
-    name: str = 'gad2'
+    name: str = 'gad7'
 
     def __init__(self):
         raw_json = import_question_set(path=JSON_QUESTION_SET)

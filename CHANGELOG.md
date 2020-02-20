@@ -10,10 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Update requirements to latest.
-* Fixes [#13](https://github.com/chrishannam/hippocrates/issues/13) with
+
+### Fixed
+- Fixes [#13](https://github.com/chrishannam/hippocrates/issues/13) with
   wrong boundaries for GAD-2 test.
-* Fixes [#14](https://github.com/chrishannam/hippocrates/issues/14) with
+- Fixes [#14](https://github.com/chrishannam/hippocrates/issues/14) with
   wrong boundaries for PHQ-2 test.
+- Wrong name on GAD7.
 
 ## 0.3.2
 ### Added
