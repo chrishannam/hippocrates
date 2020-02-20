@@ -32,7 +32,7 @@ def main():
             writer.writerow(
                 {
                     'Date Taken': gad7_date,
-                    'Assessment Name': 'phq9',
+                    'Assessment Name': 'gad7',
                     'Score': randint(0, 21),
                 }
             )
