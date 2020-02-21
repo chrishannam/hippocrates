@@ -22,5 +22,10 @@ setuptools.setup(
     ],
     install_requires=['click==7.0', 'pick>=0.6.4', 'tabulate>=0.8.2'],
     include_package_data=True,
-    entry_points={'console_scripts': ['hippocrates=hippocrates.command_line:main']},
+    entry_points={
+        'console_scripts': [
+            'hippocrates=hippocrates.command_line:main',
+            'hippocrates-results=hippocrates.results:main',
+        ]
+    },
 )
