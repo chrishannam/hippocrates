@@ -9,7 +9,7 @@ from bokeh.plotting import figure
 
 from hippocrates.data.fetcher import from_log
 
-PLOT_WIDTH = 1000
+PLOT_WIDTH = 1200
 PLOT_HEIGHT = 400
 OUTPUT_FILE_NAME = 'hippocrates_results.html'
 
