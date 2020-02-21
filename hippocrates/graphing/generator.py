@@ -60,6 +60,40 @@ def render_questionnaire():
     show(column(columns_to_display))
 
 
+def beck_depression_index(dates, scores):
+    column_data = figure(title='Beck Depression Index',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color='#fafafa',
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label='Score',
+        line_width=2,
+        color='#d95b43',
+        alpha=0.8
+    )
+    return column_data
+
+
+def gad2(dates, scores):
+    column_data = figure(title='Generalised Anxiety Disorder Assessment (GAD-2)',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color='#fafafa',
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label='Score',
+        line_width=2,
+        color='#53777a',
+        alpha=0.8
+    )
+    return column_data
+
+
 def gad7(dates, scores):
     column_data = figure(title='Generalised Anxiety Disorder Assessment (GAD-7)',
                          plot_width=PLOT_WIDTH,
@@ -77,8 +111,42 @@ def gad7(dates, scores):
     return column_data
 
 
+def phq2(dates, scores):
+    column_data = figure(title='Patient Health Questionnaire (PHQ-2)',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color='#fafafa',
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label='Score',
+        line_width=2,
+        color='#d95b43',
+        alpha=0.8
+    )
+    return column_data
+
+
 def phq9(dates, scores):
     column_data = figure(title='Patient Health Questionnaire (PHQ-9)',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color='#fafafa',
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label='Score',
+        line_width=2,
+        color='#d95b43',
+        alpha=0.8
+    )
+    return column_data
+
+
+def rosenberg_self_esteem(dates, scores):
+    column_data = figure(title='Rosenberg Self Esteem',
                          plot_width=PLOT_WIDTH,
                          plot_height=PLOT_HEIGHT,
                          background_fill_color='#fafafa',
