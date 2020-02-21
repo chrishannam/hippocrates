@@ -14,7 +14,7 @@ def from_log(filename: str = None) -> t.Dict:
     if not filename:
         filename = f'{expanduser("~")}/.hippocrates/results.csv'
 
-    log = {}
+    log: t.Dict = {}
     with open(filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
 
@@ -24,7 +24,7 @@ def from_log(filename: str = None) -> t.Dict:
                 log[assessment_name] = []
 
             dt = datetime.strptime(row['Date Taken'], DATE_FORMAT)
-            row['Date Taken'] = dt
+            row['Date Taken'] = dt  # type: ignore
             log[assessment_name].append(row)
 
     return log
