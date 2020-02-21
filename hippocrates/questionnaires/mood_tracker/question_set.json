@@ -20,31 +20,31 @@
   "result_formula": "average",
   "results": [
     {
-      "comment": null,
+      "comment": "Awful",
       "max": 2,
       "min": 0,
       "severity": "Awful"
     },
     {
-      "comment": null,
+      "comment": "Rough",
       "max": 4,
       "min": 2,
       "severity": "Rough"
     },
     {
-      "comment": null,
+      "comment": "Same old",
       "max": 6,
       "min": 4,
       "severity": "Same old"
     },
     {
-      "comment": null,
+      "comment": "Good",
       "max": 8,
       "min": 6,
       "severity": "Good"
     },
     {
-      "comment": null,
+      "comment": "Great",
       "max": 10,
       "min": 8,
       "severity": "Great"
