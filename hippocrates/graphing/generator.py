@@ -11,6 +11,7 @@ from hippocrates.data.fetcher import from_log
 
 PLOT_WIDTH = 1000
 PLOT_HEIGHT = 400
+OUTPUT_FILE_NAME = 'hippocrates_results.html'
 
 
 def format_data():
@@ -42,7 +43,7 @@ def format_data():
 
 
 def render_questionnaire():
-    output_file("hippocrates_results.html")
+    output_file(OUTPUT_FILE_NAME)
 
     columns_to_display = []
 
@@ -63,31 +64,31 @@ def gad7(dates, scores):
     column_data = figure(title='Generalised Anxiety Disorder Assessment (GAD-7)',
                          plot_width=PLOT_WIDTH,
                          plot_height=PLOT_HEIGHT,
-                         background_fill_color="#fafafa",
+                         background_fill_color='#fafafa',
                          x_axis_type='datetime')
     column_data.line(
         dates,
         scores,
-        legend_label="Score",
+        legend_label='Score',
         line_width=2,
-        color="#53777a",
+        color='#53777a',
         alpha=0.8
     )
     return column_data
 
 
 def phq9(dates, scores):
-    column_data = figure(title='Patient Health Questionnaire (PHQ)-9',
+    column_data = figure(title='Patient Health Questionnaire (PHQ-9)',
                          plot_width=PLOT_WIDTH,
                          plot_height=PLOT_HEIGHT,
-                         background_fill_color="#fafafa",
+                         background_fill_color='#fafafa',
                          x_axis_type='datetime')
     column_data.line(
         dates,
         scores,
-        legend_label="Score",
+        legend_label='Score',
         line_width=2,
-        color="#d95b43",
+        color='#d95b43',
         alpha=0.8
     )
     return column_data

@@ -51,3 +51,24 @@ Logs results to ~/.hippocrates/results.csv, default is `off`.
 
 ### questionnaire
 Selected questionnaire to complete.
+
+
+# Reporting
+Using `--log` outputs your results in a csv file stored locally in you
+home directory called `.hippocrates`. A sample is listed below:
+
+```
+2019-01-21 13:12:38,gad7,15
+2019-02-21 13:17:38,phq9,14
+2019-03-22 13:12:38,gad7,3
+```
+
+## hippocrates-results
+Use the command `hippocrates-results` to create a local `html` file
+called `hippocrates_results.html`.
+
+This file will be opened in your browser to display your results as a
+basic graph:
+
+![Example results](docs/images/hippocrates-results.png)
+
