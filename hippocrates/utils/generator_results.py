@@ -16,8 +16,9 @@ def main():
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
+        start_time = datetime.now() - timedelta(days=366)
         for day in range(1, 365):
-            phq9_date = datetime.now() - timedelta(days=day)
+            phq9_date = start_time + timedelta(days=day)
             gad7_date = phq9_date - timedelta(seconds=300)
 
             phq9_date = phq9_date.strftime(DATE_FORMAT)
