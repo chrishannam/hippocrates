@@ -1,0 +1,53 @@
+{
+  "question_set": {
+    "1000": {
+      "answers": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9,
+        "10": 10
+      },
+      "question": "How are you feeling today out of 10?"
+    }
+  },
+  "question_title": "How have you felt about today?",
+  "result_formula": "average",
+  "results": [
+    {
+      "comment": "Awful",
+      "max": 2,
+      "min": 0,
+      "severity": "Awful"
+    },
+    {
+      "comment": "Rough",
+      "max": 4,
+      "min": 2,
+      "severity": "Rough"
+    },
+    {
+      "comment": "Same old",
+      "max": 6,
+      "min": 4,
+      "severity": "Same old"
+    },
+    {
+      "comment": "Good",
+      "max": 8,
+      "min": 6,
+      "severity": "Good"
+    },
+    {
+      "comment": "Great",
+      "max": 10,
+      "min": 8,
+      "severity": "Great"
+    }
+  ]
+}
