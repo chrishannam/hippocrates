@@ -160,3 +160,20 @@ def rosenberg_self_esteem(dates, scores):
         alpha=0.8
     )
     return column_data
+
+
+def mood(dates, scores):
+    column_data = figure(title='Mood Tracker',
+                         plot_width=PLOT_WIDTH,
+                         plot_height=PLOT_HEIGHT,
+                         background_fill_color='#fafafa',
+                         x_axis_type='datetime')
+    column_data.line(
+        dates,
+        scores,
+        legend_label='Score',
+        line_width=2,
+        color='#d95b43',
+        alpha=0.8
+    )
+    return column_data
