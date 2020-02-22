@@ -30,7 +30,7 @@ class GAD7Assessment(Assessment):
 
     def __init__(self):
         raw_json = import_question_set(path=JSON_QUESTION_SET)
-        self.question_set: t.List = create_questions(raw_json)
+        self.question_set: t.List = question_set
         self.total_questions: int = len(self.question_set)
         self.results: t.List = create_results(question_set_json=raw_json)
 
