@@ -30,7 +30,7 @@ class Assessment:
     question_set: t.List = []
     results: t.List = []
     current_question: int = 0
-    name: str = ''
+    name: str = 'base_assessment'
 
     @property
     def title(self):
@@ -40,6 +40,9 @@ class Assessment:
         return self.question_set
 
     def take_assessment(self, interactive=True):
+        """
+        Returns a pick session to complete the assessment.
+        """
         for question in self.question_set:
             options: t.List = []
             for answer in question.answer_options:
@@ -47,6 +50,8 @@ class Assessment:
 
             if interactive:
                 ask_question_using_pick(options, question)
+            else:
+                yield options, question
 
     def ask_question(self) -> QuestionAnswerSet:
         question_to_ask = self.question_set[self.current_question]

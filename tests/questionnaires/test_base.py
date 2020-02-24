@@ -99,3 +99,36 @@ def test_display_results(assessment):
     _take_assessment(assessment)
     table = assessment.display_answers()
     assert len(table.split('\n')) > len(assessment.question_set)
+
+
+def test_assessment_title():
+    assessment = Assessment()
+    assessment.name = 'Base Assessment'
+
+
+def test_take_assessment():
+    assessment = Assessment()
+
+    question_one = Question('Do you like chips?')
+    answer_one = Answer('yes', 10)
+
+    question_set_one = QuestionAnswerSet(
+        question=question_one, answer_options=[answer_one], answer=answer_one
+    )
+    assessment.total_questions = 1
+    assessment.question_set = [question_set_one]
+
+    count = 0
+
+    for _, __ in assessment.take_assessment(interactive=False):
+        count += 1
+
+    assert count == 1
+
+
+def test_save_results():
+    assessment = Assessment()
+    assessment.total_score = MagicMock()
+    assessment.check_directory_exists = MagicMock()
+    assessment._write_to_file = MagicMock()
+    assessment.save_results()
