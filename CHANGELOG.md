@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixes [#14](https://github.com/chrishannam/hippocrates/issues/14) with
   wrong boundaries for PHQ-2 test.
 - Wrong name on GAD7.
+- Missing question in Rosenberg
+- Removed extra question in GAD7.
 
 ## 0.3.2
 ### Added
