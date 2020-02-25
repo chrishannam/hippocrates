@@ -50,7 +50,7 @@ class Assessment:
 
             ask_question_using_pick(options, question)
 
-    def take_assessment(self):
+    def take_assessment(self) -> t.Generator:
         """
         Returns a pick session to complete the assessment.
         """
@@ -164,7 +164,8 @@ class Assessment:
             return True
         except OSError:
             print(f'Creation of the directory {STORAGE_FILE_PATH} failed')
-
+        return False
+    
 
 class AssessmentIncomplete(Exception):
     pass
