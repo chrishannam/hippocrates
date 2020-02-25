@@ -23,8 +23,7 @@ def main(hide, log, questionnaire):
     # Assessment not found so display help text.
     if not questionnaire_selected:
         _display_help()
-
-    questionnaire_selected.take_assessment()
+    questionnaire_selected.take_assessment_interactive()
 
     # Don't display the table of results at the end.
     if not hide:

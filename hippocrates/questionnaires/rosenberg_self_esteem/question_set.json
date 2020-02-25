@@ -25,9 +25,18 @@
                 "Strongly agree": 3,
                 "Strongly disagree": 0
             },
-            "question": "I am able to do things as well as most other people."
+            "question": "All in all, I am inclined to feel that I am a failure."
         },
         "4000": {
+            "answers": {
+                "Agree": 2,
+                "Disagree": 1,
+                "Strongly agree": 3,
+                "Strongly disagree": 0
+            },
+            "question": "I am able to do things as well as most other people."
+        },
+        "5000": {
             "answers": {
                 "Agree": 1,
                 "Disagree": 2,
@@ -36,7 +45,7 @@
             },
             "question": "I feel I do not have much to be proud of."
         },
-        "5000": {
+        "6000": {
             "answers": {
                 "Agree": 2,
                 "Disagree": 1,
@@ -45,7 +54,7 @@
             },
             "question": "I take a positive attitude toward myself."
         },
-        "6000": {
+        "7000": {
             "answers": {
                 "Agree": 2,
                 "Disagree": 1,
@@ -54,7 +63,7 @@
             },
             "question": "On the whole, I am satisfied with myself."
         },
-        "7000": {
+        "8000": {
             "answers": {
                 "Agree": 1,
                 "Disagree": 2,
@@ -63,7 +72,7 @@
             },
             "question": "I wish I could have more respect for myself."
         },
-        "8000": {
+        "9000": {
             "answers": {
                 "Agree": 1,
                 "Disagree": 2,
@@ -72,7 +81,7 @@
             },
             "question": "I certainly feel useless at times."
         },
-        "9000": {
+        "10000": {
             "answers": {
                 "Agree": 1,
                 "Disagree": 2,
@@ -93,7 +102,7 @@
         },
         {
             "comment": "Normal",
-            "max": 27,
+            "max": 30,
             "min": 15,
             "severity": "Good"
         }
