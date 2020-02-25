@@ -120,7 +120,7 @@ def test_take_assessment():
 
     count = 0
 
-    for _, __ in assessment.take_assessment(interactive=False):
+    for _, __ in assessment.take_assessment():
         count += 1
 
     assert count == 1
@@ -129,6 +129,6 @@ def test_take_assessment():
 def test_save_results():
     assessment = Assessment()
     assessment.total_score = MagicMock()
-    assessment.check_directory_exists = MagicMock()
+    assessment.create_log_directory = MagicMock()
     assessment._write_to_file = MagicMock()
-    assessment.save_results()
+    assert assessment.save_results()

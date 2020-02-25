@@ -15,7 +15,7 @@ STORAGE_DIRECTORY_NAME = '.hippocrates'
 STORAGE_FILE_PATH = path.join(HOME_DIRECTORY, STORAGE_DIRECTORY_NAME)
 STORAGE_FILE = path.join(STORAGE_FILE_PATH, 'results.csv')
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
-
+CSV_FILE_HEADERS = 'Date Taken,Assessment Name,Score\n'
 
 def ask_question_using_pick(
     options: t.List[Answer], question_from_set: QuestionAnswerSet
@@ -39,7 +39,7 @@ class Assessment:
     def questions(self):
         return self.question_set
 
-    def take_assessment(self, interactive=True):
+    def take_assessment_interactive(self):
         """
         Returns a pick session to complete the assessment.
         """
@@ -48,9 +48,16 @@ class Assessment:
             for answer in question.answer_options:
                 options.append(answer.text)
 
-            if interactive:
-                ask_question_using_pick(options, question)
-            else:
+            ask_question_using_pick(options, question)
+
+    def take_assessment(self):
+        """
+        Returns a pick session to complete the assessment.
+        """
+        for question in self.question_set:
+            options: t.List = []
+            for answer in question.answer_options:
+                options.append(answer.text)
                 yield options, question
 
     def ask_question(self) -> QuestionAnswerSet:
@@ -116,34 +123,45 @@ class Assessment:
         table_data = [['Result', 'Severity'], [result.comment, result.severity]]
         return tabulate(table_data, tablefmt='fancy_grid')
 
-    def check_directory_exists(self):
-        if path.isdir(STORAGE_FILE_PATH):
+    def create_log_directory(self, filepath=None) -> bool:
+        if not filepath:
+            filepath = STORAGE_FILE_PATH
+        if path.isdir(filepath):
             return True
-        mkdir(STORAGE_FILE_PATH)
+
+        mkdir(filepath)
         return False
 
-    def _write_to_file(self, write_header, score):
+    def _write_to_file(self, write_header: bool, score: str, filename: str = None) -> \
+            None:
+        """
+        Write datetime, name of test and score to a log file.
+        """
+        if not filename:
+            filename = STORAGE_FILE
+
         # dir exists but the file might have been deleted
-        if not path.isfile(STORAGE_FILE):
+        if not path.isfile(filename):
             write_header = True
 
-        with open(STORAGE_FILE, 'a') as storage_file:
+        with open(filename, 'a') as storage_file:
             if write_header:
-                storage_file.write(f'Date Taken,Assessment Name,Score\n')
+                storage_file.write(CSV_FILE_HEADERS)
+
             storage_file.write(
-                f'{datetime.now().strftime(DATE_FORMAT)},' f'{self.name},{score}\n'
+                f'{datetime.now().strftime(DATE_FORMAT)},{self.name},{score}\n'
             )
 
-    def save_results(self):
+    def save_results(self) -> bool:
         score = self.total_score()
         write_header = False
         try:
             # create dir and print the headers for the csv file
-            if not self.check_directory_exists():
+            if not self.create_log_directory():
                 write_header = True
 
             self._write_to_file(write_header=write_header, score=score)
-
+            return True
         except OSError:
             print(f'Creation of the directory {STORAGE_FILE_PATH} failed')
 
