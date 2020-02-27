@@ -6,8 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.4.0
 ### Added
-- Add script to generate test data for reporting tests and graphing.
-- Add basic graphing command `hippocrates-results`.
+- Script to generate test data for reporting tests and graphing.
+- Basic graphing command `hippocrates-results`.
+- Basic mood check questionnaire.
 
 ### Changed
 - Update requirements to latest.

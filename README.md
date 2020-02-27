@@ -10,6 +10,7 @@ Currently the following are supported:
 * [Patient Health Questionnaire 2](https://en.wikipedia.org/wiki/Patient_Health_Questionnaire#2-item_depression_screener)
 * [Patient Health Questionnaire 9](https://en.wikipedia.org/wiki/PHQ-9)
 * [Rosenberg Self-Esteem Scale](https://en.wikipedia.org/wiki/Rosenberg_self-esteem_scale)
+* Mood - Generic scoring from 1 to 10 of current mood.
 
 More information about the above tests can be found in [questionnaires](docs/questionnaires.md).
 
@@ -40,6 +41,7 @@ Below is the list of the supported questionnaires:
 * `phq2`
 * `phq9`
 * `rosenberg_self_esteem`
+* `mood`
 
 ## Options
 
@@ -71,4 +73,3 @@ This file will be opened in your browser to display your results as a
 basic graph:
 
 ![Example results](docs/images/hippocrates-results.png)
-
