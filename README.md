@@ -37,11 +37,11 @@ e.g.
 Below is the list of the supported questionnaires:
 * `beck_depression_index`
 * `gad2`
-* `gad2`
+* `gad7`
+* `mood`
 * `phq2`
 * `phq9`
 * `rosenberg_self_esteem`
-* `mood`
 
 ## Options
 
