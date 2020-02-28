@@ -17,6 +17,7 @@ STORAGE_FILE = path.join(STORAGE_FILE_PATH, 'results.csv')
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 CSV_FILE_HEADERS = 'Date Taken,Assessment Name,Score\n'
 
+
 def ask_question_using_pick(
     options: t.List[Answer], question_from_set: QuestionAnswerSet
 ):
@@ -132,8 +133,9 @@ class Assessment:
         mkdir(filepath)
         return False
 
-    def _write_to_file(self, write_header: bool, score: str, filename: str = None) -> \
-            None:
+    def _write_to_file(
+        self, write_header: bool, score: str, filename: str = None
+    ) -> None:
         """
         Write datetime, name of test and score to a log file.
         """
@@ -165,7 +167,7 @@ class Assessment:
         except OSError:
             print(f'Creation of the directory {STORAGE_FILE_PATH} failed')
         return False
-    
+
 
 class AssessmentIncomplete(Exception):
     pass

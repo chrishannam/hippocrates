@@ -1,5 +1,6 @@
 bokeh~=1.4.0
 click~=7.0
+pandas==1.0.1
 pick~=0.6.7
 tabulate~=0.8.6
 tox~=3.14.4

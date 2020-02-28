@@ -25,6 +25,7 @@ setuptools.setup(
     entry_points={
         'console_scripts': [
             'hippocrates=hippocrates.command_line:main',
+            'hippocrates-summary=hippocrates.command_line_summary:main',
             'hippocrates-results=hippocrates.results:main',
         ]
     },

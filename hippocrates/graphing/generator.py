@@ -7,7 +7,7 @@ from bokeh.io import output_file, show
 from bokeh.layouts import column
 from bokeh.plotting import figure
 
-from hippocrates.data.fetcher import from_log
+from hippocrates.data.fetcher import from_log_raw
 
 PLOT_WIDTH = 1200
 PLOT_HEIGHT = 400
@@ -24,7 +24,7 @@ def format_data():
     }
     """
 
-    data = from_log()
+    data = from_log_raw()
     results = {}
 
     for questionnaire, values in data.items():
