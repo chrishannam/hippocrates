@@ -19,16 +19,10 @@ def average_score(
     if not log_entries:
         log_entries = from_log_processed()
 
-    total = 0
-    count = 0
-
     if questionnaire not in log_entries:
         raise NoDataException()
 
-    for data_point in log_entries[questionnaire]:
-        if end_date > data_point.date > start_date:
-            total += data_point.score
-            count += 1
+    total, count = _get_average_total(log_entries[questionnaire], start_date, end_date)
 
     average = int(total / count)
     assessment = _select_questionnaire(questionnaire)
@@ -41,3 +35,15 @@ def average_score(
             severity = result.severity
 
     return average, advice, severity
+
+
+def _get_average_total(log_entries, start_date, end_date):
+    total = 0
+    count = 0
+
+    for data_point in log_entries:
+        if end_date > data_point.date > start_date:
+            total += data_point.score
+            count += 1
+
+    return total, count
