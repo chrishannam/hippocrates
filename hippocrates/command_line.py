@@ -5,6 +5,22 @@ import click
 from hippocrates.questionnaires.base import Assessment
 
 
+def _validate_params(list_questionnaires, questionnaire):
+    if list_questionnaires or not questionnaire:
+        print('Please choose from the available questionnaires:\n')
+        _display_help()
+        exit()
+
+    questionnaire_selected = _select_questionnaire(questionnaire)
+    # Assessment not found so display help text.
+    if not questionnaire_selected:
+        print('Assessment not found, please choose from:')
+        _display_help()
+
+    print(f'Taking the {questionnaire_selected.title}')
+    return questionnaire_selected
+
+
 @click.command()
 @click.option('--hide', is_flag=True)
 @click.option('-l', '--log', is_flag=True)
@@ -19,13 +35,7 @@ def main(hide, log, list_questionnaires, questionnaire):
     :return:
     """
 
-    if list_questionnaires or not questionnaire:
-        print('Please choose from the available questionnaires:\n')
-        _display_help()
-        exit()
-
-    questionnaire_selected = _select_questionnaire(questionnaire)
-    print(f'Taking the {questionnaire_selected.title}')
+    questionnaire_selected = _validate_params(list_questionnaires, questionnaire)
 
     # Assessment not found so display help text.
     if not questionnaire_selected:
