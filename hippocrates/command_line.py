@@ -5,11 +5,28 @@ import click
 from hippocrates.questionnaires.base import Assessment
 
 
+def _validate_params(list_questionnaires, questionnaire):
+    if list_questionnaires or not questionnaire:
+        print('Please choose from the available questionnaires:\n')
+        _display_help()
+        exit()
+
+    questionnaire_selected = _select_questionnaire(questionnaire)
+    # Assessment not found so display help text.
+    if not questionnaire_selected:
+        print('Assessment not found, please choose from:')
+        _display_help()
+
+    print(f'Taking the {questionnaire_selected.title}')
+    return questionnaire_selected
+
+
 @click.command()
 @click.option('--hide', is_flag=True)
-@click.option('--log', is_flag=True)
-@click.argument('questionnaire')
-def main(hide, log, questionnaire):
+@click.option('-l', '--log', is_flag=True)
+@click.option('--list-questionnaires', is_flag=True)
+@click.option('-q', '--questionnaire')
+def main(hide, log, list_questionnaires, questionnaire):
     """
 
     :param hide: Doesn't display results at then of the questionnaire.
@@ -17,12 +34,14 @@ def main(hide, log, questionnaire):
     :param questionnaire: Questionnaire selected.
     :return:
     """
-    questionnaire_selected = _select_questionnaire(questionnaire)
-    print(f'Taking the {questionnaire_selected.title}')
+
+    questionnaire_selected = _validate_params(list_questionnaires, questionnaire)
 
     # Assessment not found so display help text.
     if not questionnaire_selected:
+        print('Assessment not found, please choose from:')
         _display_help()
+
     questionnaire_selected.take_assessment_interactive()
 
     # Don't display the table of results at the end.
@@ -37,10 +56,10 @@ def main(hide, log, questionnaire):
 
 
 def _display_help():
-    print('Assessment not found, please choose from:')
+
     for cls in [cls for cls in Assessment.__subclasses__()]:
         print(f'{cls.name}')
-    print('For example: hippocrates phq9')
+    print('\nFor example: hippocrates phq9')
     exit(1)
 
 
@@ -52,4 +71,7 @@ def _select_questionnaire(questionnaire):
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as exc:
+        print(exc)
