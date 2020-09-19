@@ -20,7 +20,7 @@ setuptools.setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
     ],
-    install_requires=['click==7.0', 'pick>=0.6.4', 'tabulate>=0.8.2'],
+    install_requires=['click==7.1.2', 'pick>=1.0.0', 'tabulate>=0.8.7'],
     include_package_data=True,
     entry_points={
         'console_scripts': [
