@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Average for the last 28 days script.
 
+### Fixed
+- Help output.
+
 ## 0.4.0
 ### Added
 - Script to generate test data for reporting tests and graphing.
