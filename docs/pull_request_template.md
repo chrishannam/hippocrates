@@ -2,5 +2,5 @@
 - [ ] Refactor
 - [ ] Feature
 - [ ] Bug Fix
-- [ ] Optimization
+- [ ] Optimisation
 - [ ] Documentation Update
