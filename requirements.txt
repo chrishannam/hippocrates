@@ -4,3 +4,4 @@ pandas==1.0.1
 pick~=0.6.7
 tabulate~=0.8.6
 tox~=3.14.4
+pillow>=8.1.0 # not directly required, pinned by Snyk to avoid a vulnerability
