@@ -59,7 +59,7 @@ def _display_help():
 
     for cls in [cls for cls in Assessment.__subclasses__()]:
         print(f'{cls.name}')
-    print('\nFor example: hippocrates phq9')
+    print('\nFor example: hippocrates -q phq9')
     exit(1)
 
 

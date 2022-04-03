@@ -1,6 +1,7 @@
 -r requirements.txt
-mypy~=0.782
-pre_commit~=2.7.1
-pytest~=6.0.2
-pytest-cov~=2.10.1
-xenon~=0.7.0
+pre-commit~=2.18.1
+pytest~=7.1.1
+pytest-cov~=3.0.0
+types-tabulate~=0.8.6
+xenon~=0.9.0
+tox
